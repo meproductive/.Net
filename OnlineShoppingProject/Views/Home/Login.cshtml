@@ -1,0 +1,41 @@
+﻿@using OnlineShoppingProject.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+
+    <section>
+        <div class="wrapper">
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form action="/Home/Login" method="post">
+                    <div class="input-box">
+                        <label>Email</label>
+                        <input type="email" name="Email" placeholder="Write your e-mail here">
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Password</label>
+                        <input type="password" name="Password" placeholder="Write your password here">
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="remember-forgot d-flex">
+                        <span class="d-flex"><input type="checkbox"><label class="playfair">Remember me</label></span>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Don't have an account?<a href="/Home/Register" class="register-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+}
+
+
+
